@@ -1,0 +1,9 @@
+# Default config
+Host github.com-bcklup
+   HostName github.com
+   AddKeysToAgent yes
+   IdentityFile ~/.ssh/id_ed25519-personal
+   
+
+# Work account
+Include config.d/* 
