@@ -12,8 +12,6 @@
     ~/.p10k.zsh: .p10k.zsh
     ~/.gitconfig: .gitconfig
     ~/.gitconfig-personal: .gitconfig-personal
-    ~/.gitconfig-mfp: .gitconfig-mfp
-    ~/.gitconfig-wblue: .gitconfig-wblue
     ~/.ssh/config: ssh/config
     ~/.config/karabiner/karabiner.json: karabiner.json
     ~/.config/iterm2/com.googlecode.iterm2.plist: com.googlecode.iterm2.plist 
