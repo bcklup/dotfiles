@@ -111,6 +111,7 @@ alias mfp='cd ~/Development/mfp'
 alias wb='cd ~/Development/wblue'
 alias fs='cd ~/Development/fs'
 alias dl='cd ~/Downloads'
+alias lg='lazygit'
 
 
 # for eva
