@@ -112,6 +112,7 @@ alias wb='cd ~/Development/wblue'
 alias fs='cd ~/Development/fs'
 alias dl='cd ~/Downloads'
 alias lg='lazygit'
+alias dot='cd ~/.dotfiles/'
 
 
 # for eva
