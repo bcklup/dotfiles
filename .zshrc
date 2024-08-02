@@ -107,7 +107,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias dev='cd ~/Development'
-alias mfp='cd ~/Development/mfp'
 alias wb='cd ~/Development/wblue'
 alias fs='cd ~/Development/fs'
 alias dl='cd ~/Downloads'
