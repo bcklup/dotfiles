@@ -157,3 +157,10 @@ _fzf_comprun() {
     *)            fzf --preview "$show_file_or_dir_preview" "$@" ;;
   esac
 }
+
+# bun completions
+[ -s "/Users/bcklup/.bun/_bun" ] && source "/Users/bcklup/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

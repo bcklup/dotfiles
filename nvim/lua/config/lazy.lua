@@ -30,7 +30,7 @@ require("lazy").setup({
 		version = false, -- always use the latest git commit
 		-- version = "*", -- try installing the latest stable version for plugins that support semver
 	},
-	install = { colorscheme = { "tokyonight", "habamax" } },
+	install = { colorscheme = { "catpuccin/nvim", "tokyonight", "habamax" } },
 	checker = { enabled = true }, -- automatically check for plugin updates
 	performance = {
 		rtp = {
@@ -48,3 +48,6 @@ require("lazy").setup({
 		},
 	},
 })
+
+vim.api.nvim_set_hl(0, "LineNr", { fg = "#a19689", bg = "NONE" })
+vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#faa332", bg = "NONE" })
