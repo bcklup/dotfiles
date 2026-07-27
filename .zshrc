@@ -112,7 +112,8 @@ alias fs='cd ~/Development/fs'
 alias dl='cd ~/Downloads'
 alias lg='lazygit'
 alias dot='cd ~/.dotfiles/'
-
+alias ca='cursor-agent'
+alias kete='cd ~/Development/kete/'
 
 # for eva
 if [ -x "$(command -v eza)" ]; then
@@ -124,6 +125,28 @@ fi
 export NVM_DIR="$HOME/.nvm"
 	[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 	[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# Auto-switch node version based on .nvmrc file
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -164,3 +187,4 @@ _fzf_comprun() {
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export FONTAWESOME_TOKEN=***REDACTED-ROTATED-TOKEN***
