@@ -5,75 +5,164 @@ tap "homebrew/services"
 tap "jesseduffield/lazygit"
 tap "osx-cross/arm"
 tap "osx-cross/avr"
-tap "potatolabs/git-redate"
+tap "potatolabs/git-redate", "https://github.com/Potatolabs/homebrew-git-redate"
 tap "qmk/qmk"
+# Collection of portable C++ source libraries
 brew "boost"
+# Atmel AVR MCU programmer
 brew "avrdude"
+# Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Core application library for C
 brew "glib"
-brew "ruby"
+# Powerful, clean, object-oriented scripting language
+brew "ruby", link: false
+# Dependency manager for Cocoa projects
 brew "cocoapods"
+# Collection of reusable C++ library artifacts developed at Facebook
 brew "folly"
-brew "edencommon"
-brew "eza"
-brew "fastlane"
+# C++14 implementation of the TLS-1.3 standard
 brew "fizz"
+# Modular, composable client/server abstractions framework
 brew "wangle"
-brew "fb303"
+# Facebook's branch of Apache Thrift, including a new C++ server
 brew "fbthrift"
-brew "gnutls"
-brew "harfbuzz"
-brew "libass"
-brew "pango"
-brew "tesseract"
+# Thrift functions for querying information from a service
+brew "fb303"
+# Shared library for Watchman and Eden projects
+brew "edencommon"
+# Modern, maintained replacement for ls
+brew "eza"
+# Easiest way to build and release mobile apps
+brew "fastlane"
+# Play, record, convert, and stream select audio and video codecs
 brew "ffmpeg"
+# Command-line fuzzy finder written in Go
 brew "fzf"
+# Syntax-highlighting pager for git and diff output
 brew "git-delta"
+# GNU implementation of the famous stream editor
 brew "gnu-sed"
+# GNU Transport Layer Security (TLS) Library
+brew "gnutls"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# OpenType text shaping engine
+brew "harfbuzz"
+# Lightweight and flexible command-line JSON processor
 brew "jq"
-brew "krb5"
+# Simple terminal UI for git commands
+brew "lazygit"
+# Subtitle renderer for the ASS/SSA subtitle format
+brew "libass"
+# NCurses Disk Usage
+brew "ncdu"
+# Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Manage multiple Node.js versions
 brew "nvm"
+# Cryptography and SSL/TLS Toolkit
 brew "openssl@1.1"
-brew "tcl-tk"
+# Framework for layout and rendering of i18n text
+brew "pango"
+# Friendly PIL fork (Python Imaging Library)
 brew "pillow"
-brew "postgresql@14", restart_service: true
+# Object-relational database system
+brew "postgresql@14", restart_service: :changed
+# Interpreted, interactive, object-oriented programming language
 brew "python@3.10"
+# Install various Ruby versions and implementations
 brew "ruby-build"
+# Ruby version manager
 brew "rbenv"
+# Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Tool Command Language
+brew "tcl-tk"
+# OCR (Optical Character Recognition) engine
+brew "tesseract"
+# Programmatically correct mistyped console commands
 brew "thefuck"
+# Official tldr client written in Rust
 brew "tlrc"
+# Terminal multiplexer
 brew "tmux"
+# Watch files and take action when they change
 brew "watchman"
-brew "jesseduffield/lazygit/lazygit"
-brew "potatolabs/git-redate/git-redate"
-brew "qmk/qmk/qmk"
+# Library to create, extract, and modify Windows Imaging files
+brew "wimlib"
+# Application uninstaller
 cask "appcleaner"
+# Multi-track audio editor and recorder
 cask "audacity"
+# Tool to flash OS images to SD cards & USB drives
+cask "balenaetcher"
+# Display management tool
+cask "betterdisplay"
+# Terminal-based AI coding assistant
+cask "claude-code"
+# Write, edit, and chat about your code with AI
+cask "cursor"
+# Server and cloud storage browser
+cask "cyberduck"
+# Universal database tool and SQL client
 cask "dbeaver-community"
+# Voice and text chat software
 cask "discord"
 cask "font-jetbrains-mono-nerd-font"
+# Open-source video transcoder
+cask "handbrake-app"
+# HTTP and GraphQL Client
 cask "insomnia"
+# System monitoring app
 cask "istat-menus"
+# Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
+# Menu bar calendar
 cask "itsycal"
+# Keyboard customiser
 cask "karabiner-elements"
+# Blocks all Keyboard and TouchBar input
+cask "keyboardcleantool"
+# Open-source cross-platform alternative to AirDrop
+cask "localsend"
+# Provides updates to various Microsoft products
+cask "microsoft-auto-update"
+# Multi-platform web browser
+cask "microsoft-edge"
+# Meet, chat, call, and collaborate in just one place
+cask "microsoft-teams"
+# GameStream client
+cask "moonlight"
+# Open-source download manager
 cask "motrix"
+# App to write, plan, collaborate, and get organised
 cask "notion"
+# Calculator and converter application
 cask "numi"
+# Collaboration platform for API development
 cask "postman"
+# Toolbox companion for QMK Firmware
 cask "qmk-toolbox"
+# Control your tools with a few keystrokes
 cask "raycast"
+# Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
+# Team communication and collaboration software
 cask "slack"
+# Music streaming service
 cask "spotify"
+# Video game digital distribution service
 cask "steam"
+# Remote access and connectivity software focused on security
 cask "teamviewer"
-cask "todoist"
-cask "viber"
+# To-do list
+cask "todoist-app"
+# Open-source code editor
 cask "visual-studio-code"
+# Video communication and virtual meeting platform
 cask "zoom"
+# OpenJDK distribution from Azul
 cask "zulu@11"
 vscode "akamud.vscode-theme-onedark"
 vscode "bradlc.vscode-tailwindcss"
@@ -85,12 +174,11 @@ vscode "dsznajder.es7-react-js-snippets"
 vscode "eamodio.gitlens"
 vscode "equinusocio.vsc-community-material-theme"
 vscode "esbenp.prettier-vscode"
-vscode "github.copilot"
-vscode "github.copilot-chat"
 vscode "graphql.vscode-graphql"
 vscode "graphql.vscode-graphql-execution"
 vscode "graphql.vscode-graphql-syntax"
 vscode "gruntfuggly.todo-tree"
+vscode "henrytsz.nvim"
 vscode "johnpapa.winteriscoming"
 vscode "maptz.camelcasenavigation"
 vscode "mark-wiemer.vscode-autohotkey-plus-plus"
@@ -103,18 +191,25 @@ vscode "ms-toolsai.jupyter-keymap"
 vscode "ms-toolsai.jupyter-renderers"
 vscode "ms-toolsai.vscode-jupyter-cell-tags"
 vscode "ms-toolsai.vscode-jupyter-slideshow"
+vscode "ms-vsliveshare.vsliveshare"
 vscode "naumovs.color-highlight"
 vscode "octref.vetur"
+vscode "orta.vscode-jest"
 vscode "redhat.java"
 vscode "redhat.vscode-yaml"
 vscode "sianglim.slim"
 vscode "visualstudioexptteam.intellicode-api-usage-examples"
 vscode "visualstudioexptteam.vscodeintellicode"
+vscode "vscjava.vscode-gradle"
 vscode "vscjava.vscode-java-debug"
 vscode "vscjava.vscode-java-dependency"
 vscode "vscjava.vscode-java-pack"
 vscode "vscjava.vscode-java-test"
 vscode "vscjava.vscode-maven"
-vscode "vscodevim.vim"
 vscode "wayou.vscode-todo-highlight"
 vscode "wix.vscode-import-cost"
+go "golang.org/x/tools/gopls"
+go "honnef.co/go/tools/cmd/staticcheck"
+npm "@faker-js/faker"
+npm "corepack"
+npm "msw-auto-mock"
