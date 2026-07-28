@@ -1,0 +1,5 @@
+# Machine-local secrets and overrides — never commit
+.zshrc.local
+*.local
+.env
+.env.*

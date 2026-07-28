@@ -187,4 +187,6 @@ _fzf_comprun() {
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-export FONTAWESOME_TOKEN=***REDACTED-ROTATED-TOKEN***
+
+# Machine-local secrets & overrides (not tracked in git)
+[ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
