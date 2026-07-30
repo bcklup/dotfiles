@@ -23,3 +23,8 @@
 	conflictstyle = diff3
 [diff]
 	colorMoved = default
+
+# Per-machine overrides (untracked, highest priority). On a work/office machine,
+# set your work identity here, e.g.  [user]\n  email = you@work.com
+[include]
+	path = ~/.gitconfig.local

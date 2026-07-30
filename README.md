@@ -1,56 +1,56 @@
-# DOTFILES
+# dotfiles
 
-## Steps to bootstrap a new Mac
+Cross-machine dotfiles for macOS, Ubuntu/Debian, and WSL. Split into two
+profiles so a machine only gets what it should:
 
-1. Install Apple's Command Line Tools, which are prerequisites for Git and Homebrew.
+- **base** — essentials for **any** machine (dev tooling, CLI, editors,
+  professional apps). The work/office-laptop set.
+- **full** — base **+** personal (games/hobby packages, macOS GUI configs,
+  personal project aliases). The personal-laptop set.
 
-```zsh
-xcode-select --install
-```
+## Setup
 
-2. Clone repo into new hidden directory.
-
-```zsh
-# Use SSH (if set up)...
-git clone git@github.com:bcklup/dotfiles.git ~/.dotfiles
-
-```
-
-3. Create symlinks in the Home directory to the real files in the repo.
+**The intended way is to drive setup with Claude Code**, which reads
+[`SETUP.md`](SETUP.md), detects the OS, picks the profile, and — crucially — on a
+machine that's already partly configured, **reconciles** existing files instead
+of overwriting them.
 
 ```zsh
-# There are better and less manual ways to do this;
-# investigate install scripts and bootstrapping tools.
-
-ln -s ~/.dotfiles/.zshrc ~/.zshrc
-ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
+# prerequisites: git (+ Xcode CLT on macOS: xcode-select --install)
+git clone git@github.com-bcklup:bcklup/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
+# then, in Claude Code:  "set up this machine using SETUP.md"
 ```
 
-4. Setup SSH keys following the ssh config settings
-
-5. Install Homebrew, followed by the software listed in the Brewfile.
+For a **fresh** machine you can also run the deterministic helper directly:
 
 ```zsh
-# These could also be in an install script.
-
-# Install Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# Then pass in the Brewfile location...
-brew bundle --file ~/.dotfiles/Brewfile
-
-# ...or move to the directory first.
-cd ~/.dotfiles && brew bundle
+./bootstrap.sh --profile base   # essentials only (work/office machine)
+./bootstrap.sh --profile full   # + personal (personal machine)
 ```
 
-## TODO List
+## Layout
 
-- Learn how to use [`defaults`](https://macos-defaults.com/#%F0%9F%99%8B-what-s-a-defaults-command) to record and restore System Preferences and other macOS configurations.
-- Organize these growing steps into multiple script files.
-- Automate symlinking and run script files with a bootstrapping tool like [Dotbot](https://github.com/anishathalye/dotbot).
-- Revisit the list in [`.zshrc`](.zshrc) to customize the shell.
-- Make a checklist of steps to decommission your computer before wiping your hard drive.
-- Create a [bootable USB installer for macOS](https://support.apple.com/en-us/HT201372).
-- Integrate other cloud services into your Dotfiles process (Dropbox, Google Drive, etc.).
-- Find inspiration and examples in other Dotfiles repositories at [dotfiles.github.io](https://dotfiles.github.io/).
-- And last, but hopefully not least, [**take my course, _Dotfiles from Start to Finish-ish_**](https://www.udemy.com/course/dotfiles-from-start-to-finish-ish/?referralCode=445BE0B541C48FE85276 "Learn Dotfiles from Start to Finish-ish on Udemy")!
+```
+bootstrap.sh            # deterministic fresh-machine setup (packages + links)
+SETUP.md                # Claude-driven setup: OS detect, profile, fresh-vs-merge
+profiles/
+  base.conf.yaml        # links applied on every machine
+  personal.conf.yaml    # links applied only with --profile full
+  macos.conf.yaml       # macOS-only personal links (karabiner, iTerm2)
+packages/
+  Brewfile.base         Brewfile.personal      # macOS
+  apt-base.txt          apt-personal.txt        # Ubuntu / WSL
+dotbot/                 # symlink engine (submodule)
+.zshrc .zprofile .p10k.zsh .gitconfig           # base configs
+.zshrc.personal .gitconfig-personal ssh/config herdr/  # personal configs
+karabiner.json com.googlecode.iterm2.plist      # macOS personal configs
+```
+
+## Machine-local (never committed)
+
+- `~/.zshrc.local` — secrets / per-machine env (sourced by `.zshrc`).
+- `~/.gitconfig.local` — per-machine git identity override (e.g. a work email);
+  included last so it wins.
+- SSH keys — generated per machine and registered against the host aliases in
+  `ssh/config`; never stored in this repo.

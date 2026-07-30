@@ -1,0 +1,4 @@
+# apt-personal.txt — personal-only apt packages for Ubuntu / Debian / WSL.
+# Most personal apps (steam, spotify, discord, …) are macOS casks and have no
+# apt equivalent, so this is intentionally sparse. Add Linux-native personal
+# packages here if/when you actually use them on a Linux personal machine.

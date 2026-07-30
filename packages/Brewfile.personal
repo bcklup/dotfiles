@@ -1,0 +1,31 @@
+# Brewfile.personal — personal-machine-only packages.
+# Games, entertainment, and hobby gear. Installed ONLY with the `full` profile,
+# never on a work/office machine. Everything work-appropriate lives in Brewfile.base.
+
+tap "qmk/qmk"
+tap "osx-cross/arm"
+tap "osx-cross/avr"
+
+# Atmel AVR MCU programmer (keyboard firmware)
+brew "avrdude"
+
+# Video game digital distribution service
+cask "steam"
+# GameStream client
+cask "moonlight"
+# Music streaming service
+cask "spotify"
+# Voice and text chat software
+cask "discord"
+# Multi-track audio editor and recorder
+cask "audacity"
+# Open-source video transcoder
+cask "handbrake-app"
+# Open-source download manager
+cask "motrix"
+# Toolbox companion for QMK Firmware
+cask "qmk-toolbox"
+# Blocks all Keyboard and TouchBar input
+cask "keyboardcleantool"
+# Tool to flash OS images to SD cards & USB drives
+cask "balenaetcher"

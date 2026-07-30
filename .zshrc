@@ -89,11 +89,8 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+export EDITOR='nvim'
+export VISUAL='nvim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -106,14 +103,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias dev='cd ~/Development'
-alias wb='cd ~/Development/wblue'
-alias fs='cd ~/Development/fs'
 alias dl='cd ~/Downloads'
 alias lg='lazygit'
 alias dot='cd ~/.dotfiles/'
-alias ca='cursor-agent'
-alias kete='cd ~/Development/kete/'
+# Personal project shortcuts (dev, wb, fs, kete, ca) live in ~/.zshrc.personal
 
 # for eva
 if [ -x "$(command -v eza)" ]; then
@@ -187,6 +180,9 @@ _fzf_comprun() {
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Personal-machine shell layer (project aliases, personal tools — full profile only)
+[ -f "$HOME/.zshrc.personal" ] && source "$HOME/.zshrc.personal"
 
 # Machine-local secrets & overrides (not tracked in git)
 [ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"

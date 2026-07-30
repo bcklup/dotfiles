@@ -1,0 +1,11 @@
+# macos profile — macOS-only personal config (GUI apps). Linked only with the
+# `full` profile AND when the OS is macOS. Skipped on Linux/WSL.
+- defaults:
+    link:
+      create: true
+      relink: true
+      force: true
+
+- link:
+    ~/.config/karabiner/karabiner.json: karabiner.json
+    ~/.config/iterm2/com.googlecode.iterm2.plist: com.googlecode.iterm2.plist

@@ -1,0 +1,19 @@
+# personal profile — identity + personal-machine config. Linked only with the
+# `full` profile (./bootstrap.sh --profile full). Cross-OS (no macOS-only apps).
+- defaults:
+    link:
+      create: true
+      relink: true
+      force: true
+
+- clean: ['~', '~/.ssh', '~/.config']
+
+- link:
+    # personal shell layer (project aliases, personal tools) sourced by base .zshrc
+    ~/.zshrc.personal: .zshrc.personal
+    # multi-account git identity (included by .gitconfig)
+    ~/.gitconfig-personal: .gitconfig-personal
+    # multi-github SSH host aliases
+    ~/.ssh/config: ssh/config
+    # herdr keybinds (AI agent workspace)
+    ~/.config/herdr/config.toml: herdr/config.toml

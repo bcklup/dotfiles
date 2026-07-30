@@ -1,0 +1,9 @@
+# ~/.zshrc.personal — personal-machine shell layer.
+# Linked only with the `full` profile; sourced by the base ~/.zshrc when present.
+# Project shortcuts and personal-only tool aliases go here (not on work machines).
+
+alias dev='cd ~/Development'
+alias wb='cd ~/Development/wblue'
+alias fs='cd ~/Development/fs'
+alias kete='cd ~/Development/kete/'
+alias ca='cursor-agent'

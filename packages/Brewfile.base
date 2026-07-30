@@ -1,16 +1,17 @@
+# Brewfile.base — essentials for ANY machine (personal or work/office).
+# Dev tooling, CLI, editors, and professional apps. No games/entertainment/hobby
+# (those live in Brewfile.personal, installed only with the `full` profile).
+
 tap "homebrew/bundle"
 tap "homebrew/cask-drivers"
 tap "homebrew/cask-versions"
 tap "homebrew/services"
 tap "jesseduffield/lazygit"
-tap "osx-cross/arm"
-tap "osx-cross/avr"
 tap "potatolabs/git-redate", "https://github.com/Potatolabs/homebrew-git-redate"
-tap "qmk/qmk"
+
+# --- CLI / dev formulae ---
 # Collection of portable C++ source libraries
 brew "boost"
-# Atmel AVR MCU programmer
-brew "avrdude"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Core application library for C
@@ -91,12 +92,10 @@ brew "tmux"
 brew "watchman"
 # Library to create, extract, and modify Windows Imaging files
 brew "wimlib"
+
+# --- GUI apps (work-appropriate) ---
 # Application uninstaller
 cask "appcleaner"
-# Multi-track audio editor and recorder
-cask "audacity"
-# Tool to flash OS images to SD cards & USB drives
-cask "balenaetcher"
 # Display management tool
 cask "betterdisplay"
 # Terminal-based AI coding assistant
@@ -107,11 +106,7 @@ cask "cursor"
 cask "cyberduck"
 # Universal database tool and SQL client
 cask "dbeaver-community"
-# Voice and text chat software
-cask "discord"
 cask "font-jetbrains-mono-nerd-font"
-# Open-source video transcoder
-cask "handbrake-app"
 # HTTP and GraphQL Client
 cask "insomnia"
 # System monitoring app
@@ -122,8 +117,6 @@ cask "iterm2"
 cask "itsycal"
 # Keyboard customiser
 cask "karabiner-elements"
-# Blocks all Keyboard and TouchBar input
-cask "keyboardcleantool"
 # Open-source cross-platform alternative to AirDrop
 cask "localsend"
 # Provides updates to various Microsoft products
@@ -132,28 +125,18 @@ cask "microsoft-auto-update"
 cask "microsoft-edge"
 # Meet, chat, call, and collaborate in just one place
 cask "microsoft-teams"
-# GameStream client
-cask "moonlight"
-# Open-source download manager
-cask "motrix"
 # App to write, plan, collaborate, and get organised
 cask "notion"
 # Calculator and converter application
 cask "numi"
 # Collaboration platform for API development
 cask "postman"
-# Toolbox companion for QMK Firmware
-cask "qmk-toolbox"
 # Control your tools with a few keystrokes
 cask "raycast"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
 # Team communication and collaboration software
 cask "slack"
-# Music streaming service
-cask "spotify"
-# Video game digital distribution service
-cask "steam"
 # Remote access and connectivity software focused on security
 cask "teamviewer"
 # To-do list
@@ -164,6 +147,8 @@ cask "visual-studio-code"
 cask "zoom"
 # OpenJDK distribution from Azul
 cask "zulu@11"
+
+# --- VS Code extensions ---
 vscode "akamud.vscode-theme-onedark"
 vscode "bradlc.vscode-tailwindcss"
 vscode "bung87.rails"
@@ -208,6 +193,8 @@ vscode "vscjava.vscode-java-test"
 vscode "vscjava.vscode-maven"
 vscode "wayou.vscode-todo-highlight"
 vscode "wix.vscode-import-cost"
+
+# --- language tooling ---
 go "golang.org/x/tools/gopls"
 go "honnef.co/go/tools/cmd/staticcheck"
 npm "@faker-js/faker"

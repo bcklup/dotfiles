@@ -1,0 +1,18 @@
+# base profile — cross-OS essentials, linked on EVERY machine.
+# Run by: ./bootstrap.sh (any profile). Paths are relative to the repo root.
+- defaults:
+    link:
+      create: true
+      relink: true
+      force: true
+
+- clean: ['~']
+
+- link:
+    ~/.zshrc: .zshrc
+    ~/.zprofile: .zprofile
+    ~/.p10k.zsh: .p10k.zsh
+    ~/.gitconfig: .gitconfig
+    ~/.config/git/ignore: git/ignore
+    ~/.config/tmux/tmux.conf: tmux.conf
+    ~/.config/nvim: nvim

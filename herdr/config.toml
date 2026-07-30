@@ -1,0 +1,61 @@
+# herdr configuration — tmux-parity keybindings
+# Tracked in ~/.dotfiles; symlinked to ~/.config/herdr/config.toml via dotbot.
+#
+# Mirrors ~/.dotfiles/tmux.conf muscle memory.
+# Concept map:  tmux session -> workspace,  tmux window -> tab,  tmux pane -> pane
+#
+# herdr already ships tmux-style v2 defaults, so ONLY the binds that differ are
+# overridden here. Already-matching defaults (kept as-is):
+#   focus_pane_left/down/up/right = prefix+h/j/k/l   (tmux: bind -r h/j/k/l select-pane)
+#   new_tab                        = prefix+c         (tmux: bind c new-window)
+#   split_horizontal (stacked)     = prefix+minus     (tmux: bind - split-window -v)
+#   workspace_picker               = prefix+w         (tmux: bind s choose-tree)
+
+[keys]
+prefix = "ctrl+space"                # tmux: set -g prefix C-Space
+split_vertical = "prefix+backslash"  # side-by-side split, matches tmux "|"  (herdr default was prefix+v)
+
+# Agent switching — cycle focus through agent panes. Prefix-based, so no clash with
+# the shell, nvim, or existing herdr binds. Mnemonic: ] = next, [ = previous.
+next_agent = "prefix+]"
+previous_agent = "prefix+["
+# Optional: jump straight to agent N (prefix, then Alt+1..9). Uncomment to enable.
+# Note: Alt-chords can be flaky depending on terminal key reporting.
+focus_agent = "prefix+alt+1..9"
+
+# Seamless direct pane navigation (no prefix), vim-tmux-navigator style.
+# NOTE: herdr's navigate_pane_* only works inside its navigate-mode overlay, so it
+# can't intercept keys from the shell. Instead we bind Ctrl+h/j/k/l as direct
+# terminal-mode custom commands that call `herdr pane focus`. focus_pane_* stays on
+# prefix+h/j/k/l (herdr default) as the fallback for when nvim owns Ctrl+hjkl.
+
+# [[keys.command]]
+# key = "ctrl+h"
+# type = "shell"
+# command = "herdr pane focus --direction left"
+# description = "Focus pane left"
+#
+# [[keys.command]]
+# key = "ctrl+j"
+# type = "shell"
+# command = "herdr pane focus --direction down"
+# description = "Focus pane down"
+#
+# [[keys.command]]
+# key = "ctrl+k"
+# type = "shell"
+# command = "herdr pane focus --direction up"
+# description = "Focus pane up"
+#
+# [[keys.command]]
+# key = "ctrl+l"
+# type = "shell"
+# command = "herdr pane focus --direction right"
+# description = "Focus pane right"
+#
+[terminal]
+new_cwd = "follow"                   # new tabs/splits inherit source cwd, like tmux -c "#{pane_current_path}"
+
+[theme]
+name = "one-dark"
+auto_switch = false
