@@ -19,6 +19,12 @@ split_vertical = "prefix+backslash"  # side-by-side split, matches tmux "|"  (he
 # the shell, nvim, or existing herdr binds. Mnemonic: ] = next, [ = previous.
 next_agent = "prefix+]"
 previous_agent = "prefix+["
+
+# Last-used workspace — mirrors tmux "bind -r g switch-client -l".
+# herdr has no true last-used toggle, but with only ~2 workspaces open,
+# cycling to the next one always lands on the other = same effect.
+next_workspace = "prefix+g"
+previous_workspace = "prefix+shift+g"
 # Optional: jump straight to agent N (prefix, then Alt+1..9). Uncomment to enable.
 # Note: Alt-chords can be flaky depending on terminal key reporting.
 focus_agent = "prefix+alt+1..9"
@@ -29,29 +35,29 @@ focus_agent = "prefix+alt+1..9"
 # terminal-mode custom commands that call `herdr pane focus`. focus_pane_* stays on
 # prefix+h/j/k/l (herdr default) as the fallback for when nvim owns Ctrl+hjkl.
 
-# [[keys.command]]
-# key = "ctrl+h"
-# type = "shell"
-# command = "herdr pane focus --direction left"
-# description = "Focus pane left"
-#
-# [[keys.command]]
-# key = "ctrl+j"
-# type = "shell"
-# command = "herdr pane focus --direction down"
-# description = "Focus pane down"
-#
-# [[keys.command]]
-# key = "ctrl+k"
-# type = "shell"
-# command = "herdr pane focus --direction up"
-# description = "Focus pane up"
-#
-# [[keys.command]]
-# key = "ctrl+l"
-# type = "shell"
-# command = "herdr pane focus --direction right"
-# description = "Focus pane right"
+[[keys.command]]
+key = "ctrl+h"
+type = "shell"
+command = "herdr pane focus --direction left"
+description = "Focus pane left"
+
+[[keys.command]]
+key = "ctrl+j"
+type = "shell"
+command = "herdr pane focus --direction down"
+description = "Focus pane down"
+
+[[keys.command]]
+key = "ctrl+k"
+type = "shell"
+command = "herdr pane focus --direction up"
+description = "Focus pane up"
+
+[[keys.command]]
+key = "ctrl+l"
+type = "shell"
+command = "herdr pane focus --direction right"
+description = "Focus pane right"
 #
 [terminal]
 new_cwd = "follow"                   # new tabs/splits inherit source cwd, like tmux -c "#{pane_current_path}"
